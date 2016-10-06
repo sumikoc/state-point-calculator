@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html ng-app="graphingApp">
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/n3-charts/node_modules/d3/d3.min.js"></script>
+    <script src="../node_modules/n3-charts/build/LineChart.js"></script>
+    <link rel="stylesheet" href="../node_modules/n3-charts/build/LineChart.css">
+
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="graphingApp_styles.css"/>
+
+    <script type="text/javascript" src="../app/app.js"></script>
+    <script type="text/javascript" src="../app/dataGenerator.js"></script>
+    <script type="text/javascript" src="../app/dataCruncher.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Graph Testing</title>
+
+</head>
+
+<body ng-controller='MainCtrl as mainCtrl'>
+
+    <div class="container">
+        <H1>N3 Charts Test</H1>
+        <div class="row">
+            <form class="form-horizontal" ng-submit="changeData()">
+                    <div class="form-group">
+                        <label for="inputSVISN" class="col-sm-2 control-label">SVISN mL/g</label>
+                        <div class="col-sm-6">
+                            <input id="inputSVISN" type="number" ng-model="inputs.svisn" class="form-control" placeholder="173" title="SVISN mL/g">
+                        </div>
+                    </div>
+
+                <div class="form-group">
+                    <label for="inputNumClarifiers" class="col-sm-2 control-label">Number of Clarifiers</label>
+                    <div class="col-sm-6">
+                        <input id="inputNumClarifiers" type="number" ng-model="inputs.numClarifiers" class="form-control" placeholder="4">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAreaClarifiers" class="col-sm-2 control-label">Area of each Clarifier ft2</label>
+                    <div class="col-sm-6">
+                        <input id="inputAreaClarifiers" type="number" ng-model="inputs.areaClarifiers" class="form-control" placeholder="4776">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputMLSS" class="col-sm-2 control-label">MLSS g/L</label>
+                    <div class="col-sm-6">
+                        <input id="inputMLSS" type="number" ng-model="inputs.MLSS" class="form-control" placeholder="4">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputInfluent" class="col-sm-2 control-label">Influent Flow mgd</label>
+                    <div class="col-sm-6">
+                        <input id="inputInfluent" type="number" ng-model="inputs.influent" class="form-control" placeholder="8">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputRAS" class="col-sm-2 control-label">RAS Flow mgd</label>
+                    <div class="col-sm-6">
+                        <input id="inputRAS" type="number" ng-model="inputs.ras" class="form-control" placeholder="2">
+                    </div>
+                </div>
+
+                    <label class="col-sm-2 col-md-offset-2 checkbox-inline">
+                        <input type="radio" name="fluxUnits" id="optionsKGMH" ng-model="inputs.fluxUnits" value="kgmh" checked>
+                        Flux Units kg/m2h
+                    </label>
+
+                    <label class="col-sm-2 checkbox-inline">
+                        <input type="radio" name="fluxUnits" id="optionsKGMD" ng-model="inputs.fluxUnits" value="kgmd">
+                        Flux Units kg/m2d
+                    </label>
+
+                    <label class="col-sm-2 checkbox-inline">
+                        <input type="radio" name="fluxUnits" id="optionslbftd" ng-model="inputs.fluxUnits" value="lbftd">
+                        Flux Units lb/ft2d
+                    </label>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Update Chart</button>
+                        </div>
+                    </div>
+
+            </form>
+        </div>
+
+
+
+        <div class="row">
+            <div class="container">
+                <div class="my-chart">
+                    <linechart data="data" options="options"></linechart>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

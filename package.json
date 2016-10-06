@@ -1,0 +1,24 @@
+{
+  "name": "graphmin",
+  "version": "1.0.0",
+  "description": "A test of a graphic web application using angularjs, node, express and some graphic package",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "keywords": [
+    "graph",
+    "test"
+  ],
+  "author": "Sumiko Courtney",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "mocha": "^3.1.0",
+    "n3-charts": "^2.0.28",
+    "request": "^2.75.0"
+  }
+}
